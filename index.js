@@ -11,7 +11,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cros());
+app.use(cros({
+    origin:'https://auth-front-gold.vercel.app',
+    credentials:true
+}));
 app.use('/auth',AuthRouter)
 const PORT = process.env.PORT || 8080;
 connectDB();
